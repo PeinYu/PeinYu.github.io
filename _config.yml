@@ -55,6 +55,9 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+	开胃小菜: cake
+	生活: life
+	其他: other
 tag_map:
 
 # Date / Time format

@@ -2,6 +2,9 @@
 title: github搭建个人博客
 date: 2017-08-22 13:50:19
 tags:
+- github
+- 个人博客
+categories: 开胃小菜
 ---
 github搭建博客
 
