@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yupe.me">
-  <title>Yupe&#39;s Blog</title>
+  <title>Category: 曲径通幽 | Yupe&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Yupe的个人博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Yupe&#39;s Blog">
-<meta property="og:url" content="http://yupe.me/index.html">
+<meta property="og:url" content="http://yupe.me/categories/曲径通幽/index.html">
 <meta property="og:site_name" content="Yupe&#39;s Blog">
 <meta property="og:description" content="Yupe的个人博客">
 <meta property="og:locale" content="zh-CN">
@@ -171,44 +171,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-遭遇战-win7安装ubuntu16-04双系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/08/29/遭遇战-win7安装ubuntu16-04双系统/" class="archive-article-date">
+  	<time datetime="2017-08-28T17:03:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-29</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/29/遭遇战-win7安装ubuntu16-04双系统/">遭遇战 win7安装ubuntu16.04双系统</a>
+      <a class="archive-article-title" href="/2017/08/29/遭遇战-win7安装ubuntu16-04双系统/">遭遇战 win7安装ubuntu16.04双系统</a>
     </h1>
   
 
-        
-        <a href="/2017/08/29/遭遇战-win7安装ubuntu16-04双系统/" class="archive-article-date">
-  	<time datetime="2017-08-28T17:03:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="有种折腾叫做闲来蛋碎"><a href="#有种折腾叫做闲来蛋碎" class="headerlink" title="有种折腾叫做闲来蛋碎"></a>有种折腾叫做闲来蛋碎</h3><p>一直使用的主系统是win7，之前安装的是ubuntu14.04双系统。由于最近需要转在linux下开发，但老版本系统各种bug不断，遂打算重装成ubuntu16.04。<br>安装步骤：</p>
-<ul>
-<li>使用ultraiso把ubuntu16.04官方iso镜像写入U盘安装。步骤网上有很多。</li>
-<li>分区按照如下步骤 （总大小为50g）<br>第一次分区：挂载点：“/” 大小：22000MB，主分区，空闲起始位置，EXT4日志文件系统；<br>第二次分区：不设置挂载点；大小：2048MB，逻辑分区，空闲起始位置，交换空间；<br>第三次分区：挂载点：“/boot”；大小：200MB，空闲起始位置；EST4日志文件系统；<br>第四次分区：挂载点：“/home”；大小：剩余的所有空间；逻辑分区；空闲起始位置；EXT4日志文件系统；<br>首先在上边看你创建的”/boot“分区的编号是什么，比如“sda6”，那么在下边的”安装启动引导区的设备“下拉选项框选择”sda6“，用以windows引导ubuntu启动时用。</li>
-</ul>
-<h3 id="曲径通宵夜"><a href="#曲径通宵夜" class="headerlink" title="曲径通宵夜"></a>曲径通宵夜</h3><p>在ubuntu安装时提示强制uefi 如果强制继续安装，中途会报错grub 无法安装在 /target路径下，开始以为是安装包的问题，又重新下载了一个，结果同样问题还是不行。<br>搜到uefi模式下安装，于是把上面的引导分区/boot换成了uefi模式下的efi分区，结果ubuntu是成功安装完成了，就是每次启动会在windows和ubuntu的引导界面来回切换，而且互相没有对方系统的引导，这就尴尬了。</p>
-<h3 id="柳暗花明时"><a href="#柳暗花明时" class="headerlink" title="柳暗花明时"></a>柳暗花明时</h3><p>结果在bios中u盘启动项前面有uefi前缀，开始不以为然，后面将u盘uefi前缀去掉重新安装，进入还是报之前的错误，关闭安装界面从安装系统桌面打开安装器，终于不再提示强制uefi安装了，一切貌似又回归正常。</p>
-<p>到此系统安装好了，开机回到windows系统，打开EasyBCD，设置系统引导，这里说明windows引导ubuntu的方法。<br>添加新条目–&gt;Linux/BSD，类型选GRUB2，名称随便填，驱动器选择刚才新建名为/boot的分区。大概190M（刚才分的200M）左右的那个。然后点击添加条目。保存配置。</p>
-<p>后来发现使用NeoGrub引导加载器的方式更加简单，连u盘都省了。。</p>
-<p>引用:<br><a href="http://blog.csdn.net/u013760048/article/details/48375579" target="_blank" rel="external">http://blog.csdn.net/u013760048/article/details/48375579</a><br>还有一些手机搜索的就不贴了。。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -224,7 +214,7 @@
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -237,270 +227,17 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/29/遭遇战-win7安装ubuntu16-04双系统/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-github搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/22/github搭建个人博客/">github搭建个人博客</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/22/github搭建个人博客/" class="archive-article-date">
-  	<time datetime="2017-08-22T05:50:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>github搭建博客</p>
-<h4 id="日常写博客流程："><a href="#日常写博客流程：" class="headerlink" title="日常写博客流程："></a>日常写博客流程：</h4><ul>
-<li>在本地博客代码路径 （E:\blgo\peinyu.github.io 默认是hexos分支）下右键召唤出git bash<br>键入hexo n “新博客名” 来创建新博客。</li>
-</ul>
-<ul>
-<li>在本地Markdown编辑器下编辑博客，文章根目录为 E:\blgo\peinyu.github.io\source_posts。</li>
-<li>依次执行git add .、git commit -m “add”、git push origin hexo指令将改动推送到GitHub（此时当前分支应为hexos）；</li>
-<li>然后才执行hexo generate -d发布网站到master分支上（hexo配置文件中设置分支为master）。</li>
-</ul>
-<h4 id="两个分支"><a href="#两个分支" class="headerlink" title="两个分支"></a>两个分支</h4><p>master分支<br>hexos命令生成博客存放分支 文章以html形式体现。</p>
-<p>hexos分支<br>hexos源文件，文章以.md形式体现，也是日常编辑文章分支。</p>
-<h4 id="hexo命令"><a href="#hexo命令" class="headerlink" title="hexo命令"></a>hexo命令</h4><p>hexo n “博客名”   创建新博客 hexo new<br>hexo g                 生成静态页面  hexo generate<br>hexo d                 部署  hexo deploy<br>hexo g -d             生成并部署</p>
-<h4 id="引用："><a href="#引用：" class="headerlink" title="引用："></a>引用：</h4><p>日常写博客路程：<br><a href="http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo搭建博客/#more" target="_blank" rel="external">http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo搭建博客/#more</a><br>换了电脑怎么更新博客:<br><a href="https://www.zhihu.com/question/21193762" target="_blank" rel="external">https://www.zhihu.com/question/21193762</a><br>hexo常用命令：<br><a href="http://blog.csdn.net/qq_26975307/article/details/62447489" target="_blank" rel="external">http://blog.csdn.net/qq_26975307/article/details/62447489</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">个人博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/开胃小菜/" class="article-tag-list-link color5">开胃小菜</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/22/github搭建个人博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-练声技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/22/练声技巧/">练声技巧</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/22/练声技巧/" class="archive-article-date">
-  	<time datetime="2017-08-22T05:35:52.821Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>气沉丹田<br>吸气在腹部存住，发声过程腹部慢慢缩小，前松后紧，即肚子松腰用力。发声时从口腔贯穿至腹部，感觉声音起自腹部。喉咙放松，喉结放松。</p>
-</li>
-<li><p>打开小舌头<br>获得头腔共鸣<br>方法 打哈欠 大笑 学费玉清 </p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/22/练声技巧/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-弯曲的路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/06/弯曲的路/">弯曲的路</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/06/弯曲的路/" class="archive-article-date">
-  	<time datetime="2017-08-06T07:58:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/06/弯曲的路/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -522,11 +259,11 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
